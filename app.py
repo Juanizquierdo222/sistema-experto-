@@ -1,7 +1,4 @@
-# =============================================================================
-# APP PRINCIPAL - SISTEMA EXPERTO CARDÍACO MX
-# Framework: Flask | Puerto: 5000
-# =============================================================================
+# backend /api
 
 import logging
 from flask import Flask, request, jsonify, render_template
@@ -9,7 +6,7 @@ from flask import Flask, request, jsonify, render_template
 from rules import evaluar_sintomas, obtener_catalogo_sintomas
 from database import guardar_evaluacion, obtener_estadisticas
 
-# ── Configuración ────────────────────────────────────────────────────────────
+# ── Configuración
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s"
@@ -20,7 +17,7 @@ app = Flask(__name__)
 app.config["JSON_ENSURE_ASCII"] = False
 
 
-# ── Rutas de interfaz ────────────────────────────────────────────────────────
+# ── Rutas de interfaz
 
 @app.route("/")
 def index():
@@ -33,9 +30,9 @@ def index():
         return "Error cargando la aplicación", 500
 
 
-# ── API REST ─────────────────────────────────────────────────────────────────
+# ── API REST 
 
-@app.route("/api/sintomas", methods=["GET"])
+@app.route("/api/sintomas", methods=["GET"]) #recibe sintomas
 def get_sintomas():
     """GET /api/sintomas → Catálogo completo de síntomas."""
     try:
@@ -80,7 +77,7 @@ def evaluar():
             else:
                 logger.warning("⚠ No se pudo guardar la evaluación en la BD")
         except Exception as db_error:
-            logger.error(f"❌ Error guardando en DB: {db_error}")
+            logger.error(f"Error guardando en DB: {db_error}")
 
         # ── Log general ─────────────────────────────────────────
         logger.info(
@@ -96,7 +93,7 @@ def evaluar():
         })
 
     except Exception as e:
-        logger.error(f"❌ Error en evaluación: {e}")
+        logger.error(f"Error en evaluación: {e}")
         return jsonify({
             "success": False,
             "error": "Error interno del servidor"
@@ -141,5 +138,5 @@ def server_error(e):
 # ── Punto de entrada ─────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    logger.info("🚀 Iniciando CardioScan MX en http://localhost:5000")
+    logger.info("Iniciando CardioScan MX en http://localhost:5000")
     app.run(debug=True, host="0.0.0.0", port=5000)

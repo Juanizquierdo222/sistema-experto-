@@ -1,16 +1,16 @@
 # =============================================================================
-# MOTOR DE INFERENCIA - SISTEMA EXPERTO CARDÍACO
+# MOTOR DE INFERENCIA
 # =============================================================================
 
 ENFERMEDADES = {
-    "infarto_agudo_miocardio": {
+    "infarto_agudo_miocardio": { #ataque cardiaco
         "nombre": "Infarto Agudo de Miocardio",
         "descripcion": "Obstrucción del flujo sanguíneo al músculo cardíaco. Requiere atención de emergencia inmediata.",
         "sintomas_clave": ["dolor_pecho", "sudoracion_excesiva", "falta_aire", "dolor_brazo_izquierdo", "nauseas"],
         "sintomas_secundarios": ["mareos", "fatiga_extrema", "palpitaciones"],
         "peso_clave": 3, "peso_secundario": 1, "umbral_alto": 6, "umbral_medio": 3,
     },
-    "insuficiencia_cardiaca": {
+    "insuficiencia_cardiaca": {  #el corazon no bombea mucha sangre
         "nombre": "Insuficiencia Cardíaca",
         "descripcion": "El corazón no bombea suficiente sangre para satisfacer las necesidades del cuerpo.",
         "sintomas_clave": ["falta_aire", "fatiga_extrema", "hinchazon_piernas", "tos_persistente"],
@@ -41,20 +41,20 @@ ENFERMEDADES = {
 }
 
 SINTOMAS_CATALOGO = {
-    "dolor_pecho":          {"label": "Dolor o presión en el pecho",           "icono": "🫀", "urgencia": "alta"},
-    "falta_aire":           {"label": "Falta de aire / Dificultad respiratoria","icono": "🫁", "urgencia": "alta"},
-    "sudoracion_excesiva":  {"label": "Sudoración fría o excesiva",             "icono": "💧", "urgencia": "alta"},
-    "mareos":               {"label": "Mareos o sensación de desmayo",          "icono": "😵", "urgencia": "media"},
-    "fatiga_extrema":       {"label": "Fatiga o cansancio extremo",             "icono": "😴", "urgencia": "media"},
-    "dolor_brazo_izquierdo":{"label": "Dolor en brazo izquierdo o mandíbula",  "icono": "💪", "urgencia": "alta"},
-    "nauseas":              {"label": "Náuseas o vómito",                       "icono": "🤢", "urgencia": "media"},
-    "palpitaciones":        {"label": "Palpitaciones o latidos acelerados",     "icono": "❤️", "urgencia": "media"},
-    "latidos_irregulares":  {"label": "Latidos irregulares",                    "icono": "📈", "urgencia": "media"},
-    "hinchazon_piernas":    {"label": "Hinchazón en piernas o tobillos",        "icono": "🦵", "urgencia": "media"},
-    "tos_persistente":      {"label": "Tos persistente o sibilancias",          "icono": "😮‍💨", "urgencia": "media"},
-    "dolor_cabeza":         {"label": "Dolor de cabeza intenso",                "icono": "🤕", "urgencia": "media"},
-    "vision_borrosa":       {"label": "Visión borrosa o alterada",              "icono": "👁️", "urgencia": "media"},
-    "falta_concentracion":  {"label": "Dificultad para concentrarse",           "icono": "🧠", "urgencia": "baja"},
+    "dolor_pecho":          {"label": "Dolor o presión en el pecho",           "icono": "", "urgencia": "alta"},
+    "falta_aire":           {"label": "Falta de aire / Dificultad respiratoria","icono": "", "urgencia": "alta"},
+    "sudoracion_excesiva":  {"label": "Sudoración fría o excesiva",             "icono": "", "urgencia": "alta"},
+    "mareos":               {"label": "Mareos o sensación de desmayo",          "icono": "", "urgencia": "media"},
+    "fatiga_extrema":       {"label": "Fatiga o cansancio extremo",             "icono": "", "urgencia": "media"},
+    "dolor_brazo_izquierdo":{"label": "Dolor en brazo izquierdo o mandíbula",  "icono": "", "urgencia": "alta"},
+    "nauseas":              {"label": "Náuseas o vómito",                       "icono": "", "urgencia": "media"},
+    "palpitaciones":        {"label": "Palpitaciones o latidos acelerados",     "icono": "", "urgencia": "media"},
+    "latidos_irregulares":  {"label": "Latidos irregulares",                    "icono": "", "urgencia": "media"},
+    "hinchazon_piernas":    {"label": "Hinchazón en piernas o tobillos",        "icono": "", "urgencia": "media"},
+    "tos_persistente":      {"label": "Tos persistente o sibilancias",          "icono": "", "urgencia": "media"},
+    "dolor_cabeza":         {"label": "Dolor de cabeza intenso",                "icono": "", "urgencia": "media"},
+    "vision_borrosa":       {"label": "Visión borrosa o alterada",              "icono": "", "urgencia": "media"},
+    "falta_concentracion":  {"label": "Dificultad para concentrarse",           "icono": "", "urgencia": "baja"},
 }
 
 RECOMENDACIONES = {

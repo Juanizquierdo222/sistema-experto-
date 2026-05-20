@@ -1,7 +1,3 @@
-/* =============================================================================
-   CARDIOSCAN MX — JAVASCRIPT PRINCIPAL
-   Manejo de UI, selección de síntomas y comunicación con la API
-   ============================================================================= */
 
 'use strict';
 
@@ -30,12 +26,12 @@ function initSintomasCards() {
 
     const id = checkbox.value;
 
-    if (state.sintomas_seleccionados.has(id)) {
+    if (state.sintomas_seleccionados.has(id)) { 
       state.sintomas_seleccionados.delete(id);
       checkbox.checked = false;
       card.classList.remove('checked');
     } else {
-      state.sintomas_seleccionados.add(id);
+      state.sintomas_seleccionados.add(id); //Aquí el sistema guarda los síntomas elegidos.
       checkbox.checked = true;
       card.classList.add('checked');
     }
@@ -292,4 +288,34 @@ function showToast(msg) {
  */
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+/* =============================================================================
+   ACCESIBILIDAD
+   ============================================================================= */
+
+let currentFontSize = 16;
+
+function toggleAccessibilityMenu() {
+    const menu = document.getElementById('acc-menu');
+
+    if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'flex';
+    }
+}
+
+function changeFontSize(change) {
+
+    currentFontSize += change;
+
+    if (currentFontSize < 14) currentFontSize = 14;
+    if (currentFontSize > 24) currentFontSize = 24;
+
+    document.body.style.fontSize = currentFontSize + 'px';
+}
+
+function toggleContrast() {
+    document.body.classList.toggle('high-contrast');
 }

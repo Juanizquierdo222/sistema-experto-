@@ -11,6 +11,29 @@
   <link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body>
+  <!-- BOTÓN ACCESIBILIDAD -->
+<div class="accessibility-widget">
+
+  <button class="acc-btn" onclick="toggleAccessibilityMenu()">
+    
+  </button>
+
+  <div class="acc-menu" id="acc-menu">
+
+    <button onclick="changeFontSize(1)">
+      A+
+    </button>
+
+    <button onclick="changeFontSize(-1)">
+      A-
+    </button>
+
+    <button onclick="toggleContrast()">
+      Alto Contraste
+    </button>
+
+  </div>
+</div>
 
   <!-- HEADER -->
   <header class="header">

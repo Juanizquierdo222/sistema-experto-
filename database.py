@@ -4,6 +4,9 @@ import json
 import logging
 from datetime import datetime
 
+from dotenv import load_dotenv
+load_dotenv()
+
 try:
     import psycopg2
     from psycopg2.extras import RealDictCursor
@@ -24,11 +27,19 @@ DB_CONFIG = {
 
 
 def get_connection():
-    """Establece y retorna una conexión a PostgreSQL."""
+    """Establece y retorna una conexión a PostgreSQL / Supabase."""
+
     if not DB_AVAILABLE:
         raise RuntimeError("psycopg2 no está instalado.")
-    return psycopg2.connect(**DB_CONFIG)
 
+    return psycopg2.connect(
+        host=DB_CONFIG["host"],
+        port=DB_CONFIG["port"],
+        dbname=DB_CONFIG["database"],
+        user=DB_CONFIG["user"],
+        password=DB_CONFIG["password"],
+        sslmode="require"
+    )
 
 def guardar_evaluacion(datos_paciente: dict, sintomas: list, resultado: dict) -> int | None:
     """
